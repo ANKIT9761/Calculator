@@ -1,17 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+:root {
+  --primary-color: #22252d;
+  --secondary-color: #2a2d37;
+  --text-color: #fff;
+  --shadow-box: 6px 6px 9px #1d1f26, -6px -6px 9px #272b34;
+  --shadow-buttons: 6px 6px 9px #24262f, -6px -6px 9px #30343f;
+  --shadow-buttons-inset: inset 6px 6px 9px #24262f, inset -6px -6px 9px #30343f;
+}
+
+[data-theme="light"] {
+  --primary-color: #fff;
+  --secondary-color: #f9f9f9;
+  --text-color: #000;
+  --shadow-box: 6px 6px 9px #bebebe, -6px -6px 9px #ffffff;
+  --shadow-buttons: 6px 6px 9px #d4d4d4, -6px -6px 9px #ffffff;
+  --shadow-buttons-inset: inset 6px 6px 9px #d4d4d4, inset -6px -6px 9px #ffffff;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #e9e9e9;
+
   font-family: "Roboto", monospace, sans-serif;
   font-size: 20px;
 }
-
-$primary-color: #22252d;
-$secondary-color: #2a2d37;
-$text-color: #fff;
 
 body {
   height: 100vh;
@@ -19,33 +32,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 
-@mixin shadow-box-dark {
-  box-shadow: 6px 6px 9px rgba(#272a33, 0.4), -6px -6px 9px rgba(#2d303b, 0.4);
+@mixin shadow-box {
+  box-shadow: var(--shadow-box);
 }
-@mixin shadow-buttons-dark {
-  box-shadow: 6px 6px 9px #24262f, -6px -6px 9px #30343f;
+@mixin shadow-buttons {
+  box-shadow: var(--shadow-buttons);
 }
-@mixin shadow-buttons-dark-inset {
-  box-shadow: inset 6px 6px 9px #24262f, inset -6px -6px 9px #30343f;
-}
-
-@mixin shadow-box-light {
-  box-shadow: 6px 6px 9px rgba(#272a33, 0.4), -6px -6px 9px rgba(#2d303b, 0.4);
-}
-@mixin shadow-buttons-light {
-  box-shadow: 6px 6px 9px #24262f, -6px -6px 9px #30343f;
-}
-@mixin shadow-buttons-light-inset {
-  box-shadow: inset 6px 6px 9px #24262f, inset -6px -6px 9px #30343f;
+@mixin shadow-buttons-inset {
+  box-shadow: var(--shadow-buttons-inset);
 }
 
 main {
-  @include shadow-box-dark;
+  @include shadow-box;
   border-radius: 25px;
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   input,
   button {
     outline: none;
@@ -63,8 +66,8 @@ main {
       text-align: left;
       margin: 12px;
       font-size: 12px;
-      color: $text-color;
-      background-color: $primary-color;
+      color: var(--text-color);
+      background-color: var(--primary-color);
     }
     .span-right {
       background-color: inherit;
@@ -86,19 +89,19 @@ main {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
     border-radius: 15px;
     padding: 0.3rem 0.6rem;
 
     img {
       height: 1rem;
       width: 1rem;
-      background-color: $secondary-color;
+      background-color: var(--secondary-color);
       border-radius: inherit;
       opacity: 0.5;
       z-index: 1;
       &:active {
-        @include shadow-buttons-dark-inset;
+        @include shadow-buttons-inset;
       }
     }
     & * + img {
@@ -109,13 +112,13 @@ main {
       opacity: 1;
       transform: scale3d(1.3, 1.3, 1.3);
       transition: all 2s linear ease-in-out;
-      background-color: $text-color;
+      background-color: green;
     }
   }
 
   .ans__container {
     background-color: inherit;
-    color: $text-color;
+    color: var(--text-color);
     text-align: right;
     margin-top: 4rem;
     margin-bottom: 0.5rem;
@@ -145,7 +148,7 @@ main {
     }
   }
   .container {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
     border-radius: 30px;
     padding: 5px 0;
     .keys__container {
@@ -167,21 +170,21 @@ main {
   }
 
   button {
-    @include shadow-buttons-dark;
+    @include shadow-buttons;
     width: 55px;
     height: 60px;
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    background: $primary-color;
+    background: var(--primary-color);
 
     &:hover,
     &:active {
-      background-color: $secondary-color;
+      background-color: var(--secondary-color);
     }
 
     &:active {
-      @include shadow-buttons-dark-inset;
+      @include shadow-buttons-inset;
     }
   }
 
@@ -192,6 +195,6 @@ main {
     color: #0ee9de;
   }
   .num__key {
-    color: $text-color;
+    color: var(--text-color);
   }
 }
