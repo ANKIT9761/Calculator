@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #e9e9e9;
+  font-family: "Roboto", monospace, sans-serif;
+  font-size: 20px;
+}
+
+$primary-color: #22252d;
+$secondary-color: #2a2d37;
+$text-color: #fff;
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color;
+}
+
+@mixin shadow-box-dark {
+  box-shadow: 6px 6px 9px rgba(#272a33, 0.4), -6px -6px 9px rgba(#2d303b, 0.4);
+}
+@mixin shadow-buttons-dark {
+  box-shadow: 6px 6px 9px #24262f, -6px -6px 9px #30343f;
+}
+@mixin shadow-buttons-dark-inset {
+  box-shadow: inset 6px 6px 9px #24262f, inset -6px -6px 9px #30343f;
+}
+
+@mixin shadow-box-light {
+  box-shadow: 6px 6px 9px rgba(#272a33, 0.4), -6px -6px 9px rgba(#2d303b, 0.4);
+}
+@mixin shadow-buttons-light {
+  box-shadow: 6px 6px 9px #24262f, -6px -6px 9px #30343f;
+}
+@mixin shadow-buttons-light-inset {
+  box-shadow: inset 6px 6px 9px #24262f, inset -6px -6px 9px #30343f;
+}
+
+main {
+  @include shadow-box-dark;
+  border-radius: 25px;
+  background-color: $primary-color;
+  input,
+  button {
+    outline: none;
+  }
+
+  .top-bar {
+    background-color: inherit;
+    margin-left: 10px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    .span {
+      display: inline-block;
+    }
+    .span-left {
+      text-align: left;
+      margin: 12px;
+      font-size: 12px;
+      color: $text-color;
+      background-color: $primary-color;
+    }
+    .span-right {
+      background-color: inherit;
+
+      float: inline-end;
+      margin-top: 0.2rem;
+      margin-right: 0.5rem;
+      border-radius: inherit;
+      img {
+        background-color: inherit;
+        height: 0.7rem;
+        width: 0.7rem;
+      }
+    }
+  }
+
+  .toggle-button {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $secondary-color;
+    border-radius: 15px;
+    padding: 0.3rem 0.6rem;
+
+    img {
+      height: 1rem;
+      width: 1rem;
+      background-color: $secondary-color;
+      border-radius: inherit;
+      opacity: 0.5;
+      z-index: 1;
+      &:active {
+        @include shadow-buttons-dark-inset;
+      }
+    }
+    & * + img {
+      margin-left: 10px;
+    }
+
+    .active {
+      opacity: 1;
+      transform: scale3d(1.3, 1.3, 1.3);
+      transition: all 2s linear ease-in-out;
+      background-color: $text-color;
+    }
+  }
+
+  .ans__container {
+    background-color: inherit;
+    color: $text-color;
+    text-align: right;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    padding: 0 20px;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+      background: transparent;
+      color: white;
+    }
+
+    input {
+      border: none;
+      display: block;
+      width: 100%;
+      text-align: right;
+    }
+
+    .final__answer {
+      background-color: inherit;
+      font-size: 32px;
+      font-weight: 1000;
+    }
+  }
+  .container {
+    background-color: $secondary-color;
+    border-radius: 30px;
+    padding: 5px 0;
+    .keys__container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0.6rem;
+
+      background-color: inherit;
+      border-radius: inherit;
+      padding: 15px;
+    }
+
+    hr {
+      width: 45%;
+      margin: 10px auto;
+      border: 3px solid #474b52;
+      border-radius: 2px;
+    }
+  }
+
+  button {
+    @include shadow-buttons-dark;
+    width: 55px;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: $primary-color;
+
+    &:hover,
+    &:active {
+      background-color: $secondary-color;
+    }
+
+    &:active {
+      @include shadow-buttons-dark-inset;
+    }
+  }
+
+  .op__key {
+    color: #ff652f;
+  }
+  .main__key {
+    color: #0ee9de;
+  }
+  .num__key {
+    color: $text-color;
+  }
+}
