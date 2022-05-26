@@ -1,3 +1,7 @@
+// for design mode script
+
+// design-mode script ends.
+
 const input = document.querySelector("input");
 
 const finalAnswer = document.querySelector(".final__answer");

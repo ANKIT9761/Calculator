@@ -125,7 +125,7 @@ main {
 
     input[type="text"] {
       background-color: inherit;
-      color: white;
+      color: var(--text-color);
     }
 
     input {

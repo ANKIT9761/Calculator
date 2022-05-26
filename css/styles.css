@@ -135,7 +135,7 @@ main .ans__container {
 
 main .ans__container input[type="text"] {
   background-color: inherit;
-  color: white;
+  color: var(--text-color);
 }
 
 main .ans__container input {
