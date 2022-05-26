@@ -2,6 +2,7 @@
 const imgSelector = document.querySelectorAll(".toggle-button img");
 const toggleButton = document.querySelector(".toggle-button");
 const topBarImg = document.querySelectorAll(".span-right img");
+const timeBlock = document.querySelector(".span-left");
 
 toggleButton.addEventListener("click", (e) => {
   Object.values(toggleButton.children).map((children) => {
@@ -11,6 +12,9 @@ toggleButton.addEventListener("click", (e) => {
   });
 });
 
+let today = new Date();
+let time = today.getHours() + ":" + today.getMinutes();
+timeBlock.innerText = time;
 let activeState = "dark";
 let iconState = "light";
 for (let img of imgSelector) {
