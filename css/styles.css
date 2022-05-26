@@ -133,14 +133,8 @@ main .ans__container {
   padding: 0 20px;
 }
 
-main .ans__container input::-webkit-outer-spin-button,
-main .ans__container input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-main .ans__container input[type="number"] {
-  -moz-appearance: textfield;
-  background: transparent;
+main .ans__container input[type="text"] {
+  background-color: inherit;
   color: white;
 }
 
