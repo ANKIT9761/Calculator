@@ -116,7 +116,7 @@ let equalFunc = () => {
     input.value = currentVal;
     return currentVal;
   }
-  renderFinalAnswer("0");
+  renderFinalAnswer(input.value);
 };
 document.querySelector(".op__key[op=equal]").addEventListener("click", () => {
   equalFunc();
@@ -129,6 +129,7 @@ let clearFunc = () => {
   currentVal = "";
   operatorCount = 0;
   ans = 0;
+  renderFinalAnswer(0);
 };
 
 document
