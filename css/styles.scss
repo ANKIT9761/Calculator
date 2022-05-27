@@ -122,7 +122,9 @@ main {
     margin-top: 4rem;
     margin-bottom: 0.5rem;
     padding: 0 20px;
-
+    max-width: 300px;
+    word-wrap: all;
+    word-break: break-all;
     input[type="text"] {
       background-color: inherit;
       color: var(--text-color);
