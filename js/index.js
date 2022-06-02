@@ -12,13 +12,16 @@ toggleButton.addEventListener("click", (e) => {
   });
 });
 
-let today = new Date();
-let hours = today.getHours();
-let minutes = today.getMinutes();
-hours = hours > 10 ? hours : "0" + hours;
-minutes = minutes > 10 ? minutes : "0" + minutes;
-let time = hours + ":" + minutes;
-timeBlock.innerText = time;
+const getCurrentTime = () => {
+  let today = new Date();
+  let hours = today.getHours();
+  let minutes = today.getMinutes();
+  hours = hours > 10 ? hours : "0" + hours;
+  minutes = minutes > 10 ? minutes : "0" + minutes;
+  let time = hours + ":" + minutes;
+  return time;
+};
+timeBlock.innerText = getCurrentTime();
 let activeState = "dark";
 let iconState = "light";
 for (let img of imgSelector) {

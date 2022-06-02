@@ -1,6 +1,4 @@
-// for design mode script
 
-// design-mode script ends.
 
 const input = document.querySelector("input");
 
@@ -9,18 +7,11 @@ const finalAnswer = document.querySelector(".final__answer");
 input.value = "";
 document.querySelectorAll(".num__key").forEach((e1) => {
   e1.onclick = () => {
-    // input.value =
-    //   input.value !== "0" ? input.value + e1.innerText : e1.innerText;
     currentVal = currentVal === "" ? e1.innerText : currentVal + e1.innerText;
     input.value = input.value !== 0 ? input.value + e1.innerText : currentVal;
     console.log("currentVal: " + currentVal);
     console.log("input value: " + input.value);
-    // if (operatorCount > 0) {
-    //   buffer.push({ value: parseFloat(currentVal) });
-    //   ans = evaluate(buffer);
-    //   renderFinalAnswer(ans);
-    //   buffer.pop();
-    // }
+    
   };
 });
 
